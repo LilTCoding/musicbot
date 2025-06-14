@@ -1,0 +1,43 @@
+{
+	"name": "CoresDiscordBot",
+	"private": true,
+	"workspaces": ["apps/*", "packages/*"],
+	"scripts": {
+		"check": "biome check --write .",
+		"prepare": "husky",
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"check-types": "turbo check-types",
+		"dev:native": "turbo -F native dev",
+		"dev:web": "turbo -F web dev",
+		"dev:server": "turbo -F server dev",
+		"db:push": "turbo -F server db:push",
+		"db:studio": "turbo -F server db:studio",
+		"db:generate": "turbo -F server db:generate",
+		"db:migrate": "turbo -F server db:migrate"
+	},
+	"dependencies": {
+		"@discordjs/voice": "^0.18.0",
+		"discord.js": "^14.19.3",
+		"express-session": "^1.18.1",
+		"passport": "^0.7.0",
+		"passport-discord": "^0.1.4",
+		"ytdl-core": "^4.11.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/express": "^5.0.3",
+		"@types/express-session": "^1.18.2",
+		"@types/passport": "^1.0.17",
+		"@types/passport-discord": "^0.1.14",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.5.0",
+		"turbo": "^2.5.4"
+	},
+	"lint-staged": {
+		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+			"biome check --write ."
+		]
+	},
+	"packageManager": "bun@1.2.15"
+}
